@@ -75,6 +75,34 @@ namespace IngameScript
                 //ITerminalProperty asdf = block.GetProperty("LockMode");
             }
 
+            //messing around with text panels to actuall /helloworld/
+            //put "OwO" tag on a LCD panel
+            List<IMyTextPanel> textPanels = new List<IMyTextPanel>();
+            //IMyTextPanel helloTextPanel = (IMyTextPanel)GridTerminalSystem.GetBlockWithName("LCD Panel OwO");//getblockwithname doesn't match substrings
+            //instead of getblockwithname, getblocksoftype, then find blocks of name?
+            GridTerminalSystem.GetBlocksOfType<IMyTextPanel>(textPanels);
+            IMyTextPanel helloTextPanel;// = new IMyTextPanel();
+            if (textPanels.Count > 0)
+            {
+                helloTextPanel = textPanels[0];
+                helloTextPanel.ShowPublicTextOnScreen();
+                Echo($"{helloTextPanel.ShowOnScreen}");
+                helloTextPanel.WritePublicText("hello world\nthat was a lot of stuff for some text" ,false);
+
+            }
+            else
+            {
+                Echo("Text panel block not found");
+            }
+            //IMyTerminalBlock NANI = GridTerminalSystem.GetBlockWithName("OwO");
+            //helloTextPanel = (IMyTextPanel)NANI;
+
+
+        }
+
+        public bool checkTextPanels(List<IMyTerminalBlock> panels)
+        {
+            return true;
         }
     }
 }
