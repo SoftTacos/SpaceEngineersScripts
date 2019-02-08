@@ -35,7 +35,7 @@ namespace IngameScript
         // have to use the template if you don't want to. Just do so the first
         // time to see what a utility class looks like.
 
-        public void Program()
+        public HelloWorld()
         {
             // The constructor, called only once every session and
             // always before any other method is called. Use it to
